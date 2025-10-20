@@ -11,8 +11,8 @@ class AIResearcher:
     def __init__(self):
         self.name = "Sangyeop Lee"
         self.background = "AI/ML Engineering"
+        self.location = "34 Gasan digital 2-ro, Geumcheon-gu"
         self.motto = "개념을 코드로, 직관을 데이터로"
-        self.location = "34 Gasan digital 2-ro, Geumcheon-gu, Seoul"
         
     def current_focus(self):
         return [

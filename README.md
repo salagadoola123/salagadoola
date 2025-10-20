@@ -3,7 +3,7 @@
 > _IBM × Red Hat AI Transformation 3rd (25.05.13 ~ 25.11.07)_  
 > _6-Month AI Developer Program — Certified by IBM & Red Hat_  
 > _Full-cycle AI development: AI · Backend · Frontend · Deployment_  
-> _6-month learning record available on [Notion](https://www.notion.so/0-23f635cbe75f8012baebd56c88f37113)_
+> _6-month learning record available on [Notion](https://www.notion.so/23f635cbe75f802c8513f82bceb2b092)_
 
 ---
 

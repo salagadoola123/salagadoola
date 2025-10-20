@@ -7,21 +7,25 @@
 
 ---
 
+## 👋 About Me
+```python
 class AIResearcher:
     def __init__(self):
         self.name = "Sangyeop Lee"
         self.background = "AI/ML Engineering"
         self.location = "34 Gasan digital 2-ro, Geumcheon-gu"
         self.motto = "개념을 코드로, 직관을 데이터로"
-        
+
     def current_focus(self):
         return [
-            "🧠 Deep Learning & Computer Vision" + "LLM, REG, Yolo, Transformer, segmentation, Tensorflow, Python, ML, Pandas"
+            "🧠 Deep Learning & Computer Vision" + 
+            "LLM, REG, Yolo, Transformer, segmentation, Tensorflow, Python, ML, Pandas",
             "🏆 ML Competition (Kaggle, Dacon)",
         ]
-        
+
     def philosophy(self):
         return "질문하고, 코딩하고, 증명한다"
+        
 ---
 
 ### 🧭 About Me
@@ -39,3 +43,5 @@ class AIResearcher:
 ### 🔗 Links
 - 🖥️ [GitHub Portfolio](https://github.com/salagadoola123/salagadoola)
 - 📔 [Notion / Study Log](https://www.notion.so/0-23f635cbe75f8012baebd56c88f37113)
+
+

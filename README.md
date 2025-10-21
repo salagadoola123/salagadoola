@@ -64,6 +64,6 @@ Santander Transaction Prediction	대규모 이진분류	Functional API, BatchNor
 Jena Climate Dataset	시계열 예측	LSTM, GRU	시계열 윈도우 구성 및 RMSE 평가
 Dogs vs. Cats Redux	이미지 분류	CNN, Image Augmentation	데이터 증강 실험 및 Kaggle 제출 파일 생성
 CIFAR-10 Dataset	이미지 분류	CNN, BatchNorm, Dropout	Augmentation 및 Optimizer 실험으로 정확도 향상
-DACON: 마스크 착용 상태 분류 AI 경진대회	이미지 분류	CNN, EfficientNet	불균형 데이터 처리 및 Augmentation 실험
-DACON: 폐렴 진단 AI 경진대회	이미지 분류	ResNet, DenseNet	전이학습 및 Fine-tuning 기반 성능 개선
-DACON: 이상치 탐지 AI 경진대회	이상치 탐지	AutoEncoder, Isolation Forest	Reconstruction Error 기반 이상 탐지 실험
+마스크 착용 상태 분류 AI 경진대회	이미지 분류	CNN, EfficientNet	불균형 데이터 처리 및 Augmentation 실험
+폐렴 진단 AI 경진대회	이미지 분류	ResNet, DenseNet	전이학습 및 Fine-tuning 기반 성능 개선
+이상치 탐지 AI 경진대회	이상치 탐지	AutoEncoder, Isolation Forest	Reconstruction Error 기반 이상 탐지 실험

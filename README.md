@@ -56,27 +56,77 @@ class AIResearcher:
 --- 
 
 ### 💼 Focused on Featured Projects 
-| 프로젝트 | 문제 유형 | 주요 모델 | 실험 포인트 | 
-| :--------------------------------------------------------------- | :------: | :------------------------ | :----------------------------------- | 
-| **Bike Sharing Demand (Capital BikeShare / UCI Dataset)** | 회귀 | Keras MLP | MSE 최적화 및 Dropout/Layer 수 변화 실험 | 
-| **Diabetes Prediction (예: Dacon/Kaggle당뇨병예측)** | 이진분류 | Dense NN, SMOTE | 클래스 불균형 대응, AUC·F1 score 향상 | 
-| **Santander Customer Transaction Prediction (Kaggle Santander)** | 대규모 이진분류 | Functional API, BatchNorm | AUC 기반 성능 검증 및 하이퍼파라미터 최적화 | 
-| **Thyroid Disease Prediction (Tabular 데이터)** | 이진분류 | XGBoost, Stacking, SHAP | Tabular 데이터 해석 기반 모델 비교 | 
-| **Jena Climate Dataset Forecasting** | 시계열 예측 | LSTM, GRU | 시계열 윈도우 구성 및 RMSE 평가 | 
-| **Dogs vs. Cats Redux (Kaggle 이미지분류)** | 이미지 분류 | CNN, Image Augmentation | 데이터 증강 실험 및 제출 파일 생성 | 
-| **CIFAR-10 Image Classification (Benchmark Dataset)** | 이미지 분류 | CNN, BatchNorm, Dropout | Augmentation 및 Optimizer 실험으로 정확도 향상 | 
+| 프로젝트                                                             |   문제 유형  | 주요 모델                     | 실험 포인트                               |
+| :--------------------------------------------------------------- | :------: | :------------------------ | :----------------------------------- |
+| **서울시 따릉이 대여량 예측 경진대회**        |    회귀    | Keras MLP                 | MSE 최적화 및 Dropout/Layer 수 변화 실험      |
+| **Dacon 당뇨병예측**                   |   이진분류   | Dense NN, SMOTE           | 클래스 불균형 대응, AUC·F1 score 향상           | 
+| **2025 갑상선암 진단 분류 해커톤**                   |   이진분류   | XGBoost, LightGBM, CatBoost           | F1 Score 기반 성능 최적화 및 모델 해석 실험           | 
+| **Santander Customer Transaction Prediction (Kaggle Santander)** | 대규모 이진분류 | Functional API, BatchNorm | AUC 기반 성능 검증 및 하이퍼파라미터 최적화           |
+| **2025 전력사용량 예측 AI 경진대회**                     |   이진분류   | XGBoost, Stacking, SHAP   | Tabular 데이터 해석 기반 모델 비교              |
+| **Jena Climate Dataset Forecasting**                             |  시계열 예측  | LSTM, GRU                 | 시계열 윈도우 구성 및 RMSE 평가                 |
+| **Dogs vs. Cats Redux (Kaggle 이미지분류)**                           |  이미지 분류  | CNN, Image Augmentation   | 데이터 증강 실험 및 제출 파일 생성                 |
+| **CIFAR-10 Image Classification (Benchmark Dataset)**            |  이미지 분류  | CNN, BatchNorm, Dropout   | Augmentation 및 Optimizer 실험으로 정확도 향상 |
+| **2025 동원 x 카이스트 AI Competition: Unlocking Future Sales & Demographics** |  수요·인구 예측  | TabNet, LightGBM          | 판매 및 인구통계 예측을 위한 Feature Engineering 및 Tabular Model 비교 |
+| **2025 금융 AI Challenge : 금융 AI 모델 경쟁**                                   |  금융 데이터 분석 | Transformer, CatBoost     | 시계열·텍스트형 금융데이터 기반 리스크 예측 및 성능 튜닝                        |
+| **2025 자동차 데이터 분석 경진대회 : GPT를 활용한 뉴스클리핑 만들기**                            | NLP 생성형 AI | GPT, LangChain            | 자동차 산업 뉴스 요약 및 주제 분류용 생성형 파이프라인 설계                      |
+
+
+
+--- 
+
+## 🛠️ Tech Stack
+
+### 💻 Languages & Frameworks
+![Python](https://img.shields.io/badge/PYTHON-3776AB?style=flat&logo=python&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JAVASCRIPT-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TYPESCRIPT-3178C6?style=flat&logo=typescript&logoColor=white)
+
+### 🧠 AI / ML
+![PyTorch](https://img.shields.io/badge/PYTORCH-EE4C2C?style=flat&logo=pytorch&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/TENSORFLOW-FF6F00?style=flat&logo=tensorflow&logoColor=white)
+![Keras](https://img.shields.io/badge/KERAS-D00000?style=flat&logo=keras&logoColor=white)
+![Scikit-learn](https://img.shields.io/badge/SCIKIT--LEARN-F7931E?style=flat&logo=scikitlearn&logoColor=white)
+
+### 📊 Data & Tools
+![Pandas](https://img.shields.io/badge/PANDAS-150458?style=flat&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NUMPY-013243?style=flat&logo=numpy&logoColor=white)
+![VSCode](https://img.shields.io/badge/VSCODE-007ACC?style=flat&logo=visualstudiocode&logoColor=white)
+![Cursor](https://img.shields.io/badge/CURSOR-000000?style=flat&logo=cursor&logoColor=white)
+![Docker](https://img.shields.io/badge/DOCKER-2496ED?style=flat&logo=docker&logoColor=white)
+![Git](https://img.shields.io/badge/GIT-F05032?style=flat&logo=git&logoColor=white)
+
+### ⚙️ Development
+![React](https://img.shields.io/badge/REACT-61DAFB?style=flat&logo=react&logoColor=black)
+![React Native](https://img.shields.io/badge/REACT%20NATIVE-61DAFB?style=flat&logo=react&logoColor=black)
+![PostgreSQL](https://img.shields.io/badge/POSTGRESQL-4169E1?style=flat&logo=postgresql&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FASTAPI-009688?style=flat&logo=fastapi&logoColor=white)
+
+---
+
+## 📚 Learning Journey
+
+### 🧩 AI-study  
+> 2025.05 ~ 2025.08 (3개월간 집중 학습)
+
+ **1300+ Python files** 작성  
+ **100+ commits** 학습 기록  
+ **Keras, PyTorch, TensorFlow, Scikit-learn 마스터**  
+ **CNN, RNN, LSTM, AutoEncoder, LLM 구현**  
+ **10+ 공개 데이터셋 실습 (MNIST, CIFAR, Kaggle, Dacon)**  
+
+> “매일 코딩하고, 매일 배우고, 매일 커밋한다.”
 
 
 --- 
 
-## 🛠️ Tech Stack ### 💻 Languages & Frameworks ![Python](https://img.shields.io/badge/PYTHON-3776AB?style=flat&logo=python&logoColor=white) ![JavaScript](https://img.shields.io/badge/JAVASCRIPT-F7DF1E?style=flat&logo=javascript&logoColor=black) ![TypeScript](https://img.shields.io/badge/TYPESCRIPT-3178C6?style=flat&logo=typescript&logoColor=white) ### 🧠 AI / ML ![PyTorch](https://img.shields.io/badge/PYTORCH-EE4C2C?style=flat&logo=pytorch&logoColor=white) ![TensorFlow](https://img.shields.io/badge/TENSORFLOW-FF6F00?style=flat&logo=tensorflow&logoColor=white) ![Keras](https://img.shields.io/badge/KERAS-D00000?style=flat&logo=keras&logoColor=white) ![Scikit-learn](https://img.shields.io/badge/SCIKIT--LEARN-F7931E?style=flat&logo=scikitlearn&logoColor=white) ### 📊 Data & Tools ![Pandas](https://img.shields.io/badge/PANDAS-150458?style=flat&logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/NUMPY-013243?style=flat&logo=numpy&logoColor=white) ![VSCode](https://img.shields.io/badge/VSCODE-007ACC?style=flat&logo=visualstudiocode&logoColor=white) ![Cursor](https://img.shields.io/badge/CURSOR-000000?style=flat&logo=cursor&logoColor=white) ![Docker](https://img.shields.io/badge/DOCKER-2496ED?style=flat&logo=docker&logoColor=white) ![Git](https://img.shields.io/badge/GIT-F05032?style=flat&logo=git&logoColor=white) ### ⚙️ Development ![React](https://img.shields.io/badge/REACT-61DAFB?style=flat&logo=react&logoColor=black) ![React Native](https://img.shields.io/badge/REACT%20NATIVE-61DAFB?style=flat&logo=react&logoColor=black) ![PostgreSQL](https://img.shields.io/badge/POSTGRESQL-4169E1?style=flat&logo=postgresql&logoColor=white) ![FastAPI](https://img.shields.io/badge/FASTAPI-009688?style=flat&logo=fastapi&logoColor=white) 
+## 📄 2025 Goals 
+> 2025.08 ~ 2025.11 (AI 실무 프로젝트 수행 및 논문 기반 모델 구조 분석)
+ **Dacon Competition 입상 
+ 
+ ### AI 논문 및 기술 구현 완료 (2-Stage Model / NLP - Transformer / YOLO Model) 
+  #### IRUDA 프로젝트 - 보육원 퇴소 청소년 AI 신청서 발급 서비스
+ ####  미니 프로젝트 - AI 기반 패션 추천 서비스
+  #### Production-level AI 서비스 배포
 
---- 
+---
 
-## 📚 Learning Journey ### AI-study > 2025.05 ~ 2025.08 (3개월간 집중 학습) ✅ **1300+ Python files** 작성 ✅ **100+ commits** 학습 기록 ✅ **Keras, PyTorch, TensorFlow, Scikit-learn 마스터** ✅ **CNN, RNN, LSTM, AutoEncoder, LLM 구현** ✅ **10+ 공개 데이터셋 실습 (MNIST, CIFAR, Kaggle, Dacon)** > “매일 코딩하고, 매일 배우고, 매일 커밋한다.” 
-
---- 
-
-### 📄 Currently Learning > Paper review (Transformer, Two-stage Model, YOLO) 
-
-## 📄 2025 Goals ### Dacon Competition 입상 ### AI 논문 및 기술 구현 완료 (2-Stage Model / NLP - Transformer / YOLO Model) ### IRUDA 프로젝트 - 보육원 퇴소 청소년 AI 신청서 발급 서비스 ### 미니 프로젝트 - AI 기반 패션 추천 서비스 ### Production-level AI 서비스 배포

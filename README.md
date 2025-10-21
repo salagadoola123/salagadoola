@@ -129,7 +129,7 @@ class AIResearcher:
 
 ---
 
-## 📚 AI 논문 리뷰
+## 📚 Paper Review
 
 <details>
 <summary><b>📄 논문 리뷰 자료 보기 (Click to expand)</b></summary>
@@ -174,6 +174,86 @@ class AIResearcher:
 **📌 논문 리뷰 작성 기간**: 2025.09 ~ 2025.10  
 **📌 발표 및 토론**: 팀 STC (이상엽, 배정윤, 이상진, 김준희)  
 **📌 목표**: 논문의 핵심 개념을 코드로 구현하여 실무 적용 능력 배양
+
+</details>
+
+---
+프로젝트 포트폴리오 요약 버전입니다!
+markdown---
+
+## 🚀 AI Portfolio Project
+
+<details>
+<summary><b>💼 프로젝트 상세 보기 (Click to expand)</b></summary>
+
+<br/>
+
+### 🏠 이루다 (iruda) - 자립청소년 AI 컨설팅 Agent
+
+**📄 [프로젝트 발표자료](./papers/이상엽_Agent_Project_iruda.pdf)** | **기간**: 2025.09 ~ 2025.10 | **팀**: STC
+
+**프로젝트 개요**
+- 보육원 퇴소 청소년(1만+ 대상)을 위한 AI 기반 자립 지원 서비스
+- 복잡한 지원 제도를 통합하고 맞춤형 자립 로드맵 제공
+
+**핵심 기능**
+- 🤖 AI 기반 개인화 로드맵 (경제·주거·심리 영역)
+- 📋 정책·제도 자동 매칭 (56+ 정책 데이터)
+- 💬 GPT-4 기반 대화형 컨설팅
+- 📊 진행 상황 추적 및 피드백
+
+**기술 스택**
+- Backend: FastAPI, Python
+- Frontend: React, TypeScript
+- AI/ML: GPT-4, RAG, FAISS Vector DB
+- Database: PostgreSQL
+- Infra: Docker, AWS
+
+**주요 성과**
+- RAG 기반 정확도 향상 (RAGAS 평가)
+- 멀티턴 대화 시스템 구현
+- 24/7 AI 컨설팅 제공
+
+---
+
+### 👔 K-Fashion Demon Hunters - AI 패션 추천 서비스
+
+**📄 [프로젝트 발표자료](./papers/이상엽_mini_Project_K_Fashion_Demon_Hunters.pdf)** | **기간**: 2025.09 ~ 2025.10 | **팀**: STC
+
+**프로젝트 개요**
+- 이미지·텍스트 기반 통합 패션 플랫폼
+- Vision AI + LLM으로 개인 맞춤형 스타일링 추천
+
+**핵심 기능**
+- 🎯 AI 이미지 분석 (Google Vision API + YOLO-fashion)
+- 🤖 대화형 스타일링 (GPT-4 기반)
+- 💰 실시간 최저가 비교 (무신사·네이버·인스타 크롤링)
+- 👗 가상 피팅 (OOTDiffusion)
+- 🔍 의미론적 검색 (CLIP Embedding + FAISS)
+
+**기술 스택**
+- Backend: FastAPI, Python
+- Frontend: React, TypeScript
+- AI/ML: Google Vision API, YOLO-fashion, GPT-4, CLIP, OOTDiffusion
+- Data: BeautifulSoup, Selenium, Scrapy
+- Database: PostgreSQL, FAISS
+- Infra: Docker, AWS
+
+**차별화 포인트**
+- Vision + LLM 하이브리드 분석
+- 멀티소스 실시간 가격 비교
+- 대화형 양방향 큐레이션
+
+---
+
+**🎯 핵심 역량**
+```
+✅ End-to-End AI 서비스 개발 (기획 → 개발 → 배포)
+✅ RAG 시스템 설계 및 평가 (RAGAS Framework)
+✅ 멀티모달 AI 통합 (Vision + LLM)
+✅ Docker 컨테이너화 및 AWS 배포
+✅ 사회적 가치 실현 AI 서비스
+```
 
 </details>
 

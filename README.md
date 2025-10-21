@@ -258,3 +258,16 @@ markdown---
 </details>
 
 ---
+
+## 📞 Contact
+
+<div align="center">
+
+[![Email](https://img.shields.io/badge/EMAIL-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:salagadoola123@gmail.com)
+[![Phone](https://img.shields.io/badge/PHONE-00C73C?style=for-the-badge&logo=naver&logoColor=white)](tel:010-2688-8426)
+
+📧 **salagadoola123@gmail.com** | 📱 **010-2688-8426** 
+
+</div>
+
+---

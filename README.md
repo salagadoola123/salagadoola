@@ -121,7 +121,6 @@ class AIResearcher:
 
 ## 📄 2025 Goals 
 > 2025.08 ~ 2025.11 (AI 실무 프로젝트 수행 및 논문 기반 모델 구조 분석)
- **Dacon Competition 입상 
  
  ### AI 논문 및 기술 구현 완료 (2-Stage Model / NLP - Transformer / YOLO Model) 
   #### IRUDA 프로젝트 - 보육원 퇴소 청소년 AI 신청서 발급 서비스

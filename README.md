@@ -129,3 +129,52 @@ class AIResearcher:
 
 ---
 
+## 📚 AI 논문 리뷰
+
+<details>
+<summary><b>📄 논문 리뷰 자료 보기 (Click to expand)</b></summary>
+
+<br/>
+
+### 🎯 Object Detection
+
+#### [2-Stage Detector 논문 리뷰 (R-CNN 계열)](./papers/이상엽_2-stage_paper_review.pdf)
+- **주요 내용**
+  - R-CNN → Fast R-CNN → Faster R-CNN → Mask R-CNN 진화 과정
+  - Selective Search, RPN(Region Proposal Network) 분석
+  - RoI Pooling vs RoI Align 비교 및 구현
+- **구현**: Mask R-CNN 코드 구현 포함
+- **키워드**: Two-Stage Detection, Feature Pyramid Network, ResNet-FPN
+
+<br/>
+
+#### [Transformer 논문 리뷰 (Attention Is All You Need)](./papers/이상엽_NLP_Transformer_paper_review.pdf)
+- **주요 내용**
+  - RNN/LSTM의 한계와 Transformer의 등장 배경
+  - Self-Attention & Multi-Head Attention 메커니즘 상세 분석
+  - Positional Encoding의 수학적 원리 (sin/cos)
+- **학습 포인트**: 
+  - Query, Key, Value의 개념적 이해
+  - Residual Connection & Layer Normalization
+- **키워드**: Attention Mechanism, Parallel Processing, NLP Revolution
+
+<br/>
+
+#### [YOLO 시리즈 발전과정 (YOLOv1~v11)](./papers/이상엽_YOLO_paper_review.pdf)
+- **주요 내용**
+  - 1-Stage Detector의 진화 과정 상세 분석
+  - YOLOv1의 혁신적 아이디어부터 YOLOv11의 최신 기술까지
+  - Anchor-Free, Bounding-Free 방식의 패러다임 전환
+- **분량**: 75페이지
+- **키워드**: Real-time Detection, CSPDarknet, C2f, Decoupled Head
+
+<br/>
+---
+
+**📌 논문 리뷰 작성 기간**: 2025.09 ~ 2025.10  
+**📌 발표 및 토론**: 팀 STC (이상엽, 배정윤, 이상진, 김준희)  
+**📌 목표**: 논문의 핵심 개념을 코드로 구현하여 실무 적용 능력 배양
+
+</details>
+
+---

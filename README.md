@@ -142,7 +142,7 @@ class AIResearcher:
 - **주요 내용**
   - R-CNN → Fast R-CNN → Faster R-CNN → Mask R-CNN 진화 과정
   - Selective Search, RPN(Region Proposal Network) 분석
-  - RoI Pooling vs RoI Align 비교 및 구현
+  - RoI Pooling vs RoI Align 비교
 - **구현**: Mask R-CNN 코드 구현 포함
 - **키워드**: Two-Stage Detection, Feature Pyramid Network, ResNet-FPN
 

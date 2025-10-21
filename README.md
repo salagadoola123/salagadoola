@@ -178,8 +178,6 @@ class AIResearcher:
 </details>
 
 ---
-프로젝트 포트폴리오 요약 버전입니다!
-markdown---
 
 ## 🚀 AI Portfolio Project
 

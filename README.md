@@ -114,7 +114,7 @@ class AIResearcher:
  **CNN, RNN, LSTM, AutoEncoder, LLM 구현**  
  **10+ 공개 데이터셋 실습 (MNIST, CIFAR, Kaggle, Dacon)**  
 
-> “매일 코딩하고, 매일 배우고, 매일 커밋한다.”
+> "매일 코딩하고, 매일 배우고, 매일 커밋한다."
 
 
 --- 
@@ -252,6 +252,45 @@ class AIResearcher:
 ✅ Docker 컨테이너화 및 AWS 배포
 ✅ 사회적 가치 실현 AI 서비스
 ```
+
+</details>
+
+---
+
+## 🎵 Personal Dev Project
+
+<details>
+<summary><b>🎧 VIBE 가사지 - 실시간 가사 싱크 오버레이 (Click to expand)</b></summary>
+
+<br/>
+
+### 🎵 VIBE 가사지 (Gasaji) - 실시간 가사 싱크 Chrome Extension
+
+**기간**: 2026.03 | **개인 프로젝트**
+
+[![VIBE 가사지 | Chrome 확장으로 실시간 가사 싱크 오버레이 만들기 (OBS 연동)](https://img.youtube.com/vi/1cweE-WapEU/maxresdefault.jpg)](https://youtu.be/1cweE-WapEU)
+
+**프로젝트 개요**
+- VIBE 웹 플레이어의 내부 플레이어 객체를 역공학하여 ms 단위 칼싱크 가사 오버레이 구현
+- Chrome Extension + Python 브릿지 서버 + WebSocket 아키텍처
+
+**핵심 기능**
+- 🎯 `window.webPlayer.playerCore.currentAudio.currentTime` 직접 추출로 ms 단위 칼싱크
+- 🎵 VIBE API 싱크 가사 + LRCLIB fallback (외국 곡)
+- 📡 WebSocket 실시간 브로드캐스트 → OBS 브라우저 소스
+- 🔍 fetch 인터셉트 + PerformanceObserver로 trackId 자동 감지
+- 🖥️ 드래그 가능한 인페이지 가사 위젯
+
+**기술 스택**
+- Extension: Chrome Manifest V3, Content Script, MAIN World Injection
+- Backend: Python, asyncio, websockets
+- API: VIBE Web API (cookie auth), LRCLIB
+- Sync: DOM Bridge Pattern (`data-vibe-time` 속성)
+
+**기술적 도전**
+- Isolated World ↔ MAIN World 데이터 브릿지 패턴 직접 설계
+- `playTime`(누적 시간) vs `currentAudio.currentTime`(곡별 리셋) 구분 및 역공학
+- SPA 네비게이션 후에도 브릿지 스크립트 생존 유지 (rAF + setInterval 이중화)
 
 </details>
 

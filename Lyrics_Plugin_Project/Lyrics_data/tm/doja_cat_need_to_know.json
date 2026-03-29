@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "title": "Need to Know",
+    "artist": "Doja Cat",
+    "album": "Planet Her",
+    "year": 2021,
+    "genre": ["R&B", "Pop", "Dance Pop"],
+    "language": "en",
+    "notes": "자신감 넘치는 섹슈얼리티 표현. 현재 데이터셋 공백인 club/party 슬랭과 직설적 욕망 표현 집중 보강. Lizzo-Boys와 비교되는 여성 주체적 시선."
+  },
+
+  "structure": [
+    { "section": "intro", "label": "인트로", "span": [1, 3] },
+    { "section": "verse1", "label": "벌스1", "span": [4, 9] },
+    { "section": "prechorus1", "label": "프리코러스1", "span": [10, 11] },
+    { "section": "chorus1", "label": "코러스1", "span": [12, 15] },
+    { "section": "verse2", "label": "벌스2", "span": [16, 22] },
+    { "section": "prechorus2", "label": "프리코러스2", "span": [23, 24] },
+    { "section": "chorus2", "label": "코러스2", "span": [25, 28] },
+    { "section": "bridge", "label": "브릿지", "span": [29, 32] },
+    { "section": "chorus3", "label": "코러스3", "span": [33, 36] }
+  ],
+
+  "lyrics": [
+    { "id":  1, "section": "intro", "type": "sung", "text": "Do you got a girl?", "translation": "여자친구 있어?", "translation_notes": "", "relation": {"type": "parallel", "group": "in_a", "role": "anchor", "ref": [1, 2, 3], "auto_hints": ["fragment"]} },
+    { "id":  2, "section": "intro", "type": "sung", "text": "Do I gotta compete?", "translation": "내가 경쟁해야 해?", "translation_notes": "", "relation": {"type": "parallel", "group": "in_a", "role": "continuation", "ref": [1, 2, 3], "auto_hints": []} },
+    { "id":  3, "section": "intro", "type": "sung", "text": "Or are you just mine?", "translation": "아니면 그냥 내 거야?", "translation_notes": "", "relation": {"type": "parallel", "group": "in_a", "role": "payoff", "ref": [1, 2, 3], "auto_hints": ["starts_with_conjunction", "fragment"]} },
+    { "id":  4, "section": "verse1", "type": "sung", "text": "I don't want your number on my phone", "translation": "네 번호는 필요 없어", "translation_notes": "", "relation": {"type": "setup_chain", "group": "v1a", "role": "anchor", "ref": [4, 5], "auto_hints": []} },
+    { "id":  5, "section": "verse1", "type": "sung", "text": "If it means that I'm going home alone", "translation": "혼자 집에 가는 거라면", "translation_notes": "", "relation": {"type": "setup_chain", "group": "v1a", "role": "condition", "ref": [4, 5], "auto_hints": ["starts_with_relative"]} },
+    { "id":  6, "section": "verse1", "type": "sung", "text": "I need someone to hold me down, yeah", "translation": "날 붙잡아줄 사람이 필요해", "translation_notes": "hold down = 붙잡다, 안정감을 주다", "relation": {"type": "setup_payoff", "group": "v1b", "role": "setup", "ref": [6, 7], "auto_hints": []} },
+    { "id":  7, "section": "verse1", "type": "sung", "text": "Like I'd treat you if you let me, yeah", "translation": "내가 해줄 수 있는 것처럼", "translation_notes": "", "relation": {"type": "setup_payoff", "group": "v1b", "role": "payoff", "ref": [6, 7], "auto_hints": []} },
+    { "id":  8, "section": "verse1", "type": "sung", "text": "I'm not tryna run a game on you", "translation": "게임하려는 게 아니야", "translation_notes": "run a game = 상대를 속이거나 조종하다", "relation": {"type": "contrast", "group": "v1c", "role": "claim", "ref": [8, 9], "auto_hints": []} },
+    { "id":  9, "section": "verse1", "type": "sung", "text": "I just wanna know if you'd be down too", "translation": "너도 같은 마음인지 알고 싶어", "translation_notes": "be down = 동의하다, 함께하고 싶다", "relation": {"type": "contrast", "group": "v1c", "role": "payoff", "ref": [8, 9], "auto_hints": []} },
+    { "id": 10, "section": "prechorus1", "type": "sung", "text": "So I need to know", "translation": "그래서 알아야 해", "translation_notes": "", "relation": {"type": "setup_payoff", "group": "pc1a", "role": "setup", "ref": [10, 11], "auto_hints": ["starts_with_conjunction"]} },
+    { "id": 11, "section": "prechorus1", "type": "sung", "text": "Can you handle what I'm working with?", "translation": "내가 가진 걸 감당할 수 있어?", "translation_notes": "working with = 자신의 매력/능력을 지칭", "relation": {"type": "setup_payoff", "group": "pc1a", "role": "payoff", "ref": [10, 11], "auto_hints": []} },
+    { "id": 12, "section": "chorus1", "type": "sung", "text": "Do you want me? Do you want me? Do you want me?", "translation": "날 원해? 날 원해? 날 원해?", "translation_notes": "", "relation": {"type": "parallel", "group": "ch_a", "role": "echo", "ref": [12], "auto_hints": []} },
+    { "id": 13, "section": "chorus1", "type": "sung", "text": "I need to know", "translation": "알아야 해", "translation_notes": "" },
+    { "id": 14, "section": "chorus1", "type": "sung", "text": "'Cause I want you bad and I'm not holding back", "translation": "왜냐면 난 정말 원하거든, 더 이상 참을 수 없어", "translation_notes": "want bad = 간절히 원하다. not holding back = 억제하지 않다", "relation": {"type": "setup_payoff", "group": "ch_b", "role": "setup", "ref": [14, 15], "auto_hints": ["starts_with_conjunction"]} },
+    { "id": 15, "section": "chorus1", "type": "sung", "text": "I need to know", "translation": "알아야 해", "translation_notes": "", "relation": {"type": "setup_payoff", "group": "ch_b", "role": "echo", "ref": [14, 15], "auto_hints": []} },
+    { "id": 16, "section": "verse2", "type": "sung", "text": "You say you been feeling lonely", "translation": "외로웠다고 했잖아", "translation_notes": "", "relation": {"type": "setup_chain", "group": "v2a", "role": "anchor", "ref": [16, 17], "auto_hints": []} },
+    { "id": 17, "section": "verse2", "type": "sung", "text": "Only wanna spend some time with me", "translation": "나랑 시간을 보내고 싶다고", "translation_notes": "", "relation": {"type": "setup_chain", "group": "v2a", "role": "continuation", "ref": [16, 17], "auto_hints": []} },
+    { "id": 18, "section": "verse2", "type": "sung", "text": "Say you're tryna get to know me better", "translation": "날 더 알고 싶다고 했지", "translation_notes": "", "relation": {"type": "continuation", "group": "v2b", "role": "anchor", "ref": [18, 19], "auto_hints": []} },
+    { "id": 19, "section": "verse2", "type": "sung", "text": "But boy, I know what you mean", "translation": "그런데 자기야, 무슨 뜻인지 알아", "translation_notes": "know what you mean = 속마음을 안다는 뜻. 이중적", "relation": {"type": "continuation", "group": "v2b", "role": "payoff", "ref": [18, 19], "auto_hints": ["starts_with_conjunction"]} },
+    { "id": 20, "section": "verse2", "type": "sung", "text": "So if you want it come and get it", "translation": "원하면 와서 가져가", "translation_notes": "come and get it = 적극적으로 행동하라는 초대", "relation": {"type": "setup_payoff", "group": "v2c", "role": "setup", "ref": [20, 21], "auto_hints": ["starts_with_conjunction"]} },
+    { "id": 21, "section": "verse2", "type": "sung", "text": "Don't be wasting all my time", "translation": "내 시간 낭비하지 말고", "translation_notes": "", "relation": {"type": "setup_payoff", "group": "v2c", "role": "payoff", "ref": [20, 21], "auto_hints": []} },
+    { "id": 22, "section": "verse2", "type": "sung", "text": "I need someone who can give it to me", "translation": "줄 수 있는 사람이 필요해", "translation_notes": "" },
+    { "id": 23, "section": "prechorus2", "type": "sung", "text": "So I need to know", "translation": "그래서 알아야 해", "translation_notes": "" },
+    { "id": 24, "section": "prechorus2", "type": "sung", "text": "Can you handle what I'm working with?", "translation": "내가 가진 걸 감당할 수 있어?", "translation_notes": "" },
+    { "id": 25, "section": "chorus2", "type": "sung", "text": "Do you want me? Do you want me? Do you want me?", "translation": "날 원해? 날 원해? 날 원해?", "translation_notes": "" },
+    { "id": 26, "section": "chorus2", "type": "sung", "text": "I need to know", "translation": "알아야 해", "translation_notes": "" },
+    { "id": 27, "section": "chorus2", "type": "sung", "text": "'Cause I want you bad and I'm not holding back", "translation": "왜냐면 난 정말 원하거든, 더 이상 참을 수 없어", "translation_notes": "" },
+    { "id": 28, "section": "chorus2", "type": "sung", "text": "I need to know", "translation": "알아야 해", "translation_notes": "" },
+    { "id": 29, "section": "bridge", "type": "sung", "text": "I'm the baddest in the room", "translation": "나 여기서 제일 핫해", "translation_notes": "baddest = 가장 섹시하고 자신감 넘치는. 슬랭", "relation": {"type": "setup_chain", "group": "br_a", "role": "anchor", "ref": [29, 30], "auto_hints": []} },
+    { "id": 30, "section": "bridge", "type": "sung", "text": "Know it when I walk in", "translation": "들어서는 순간 다 알잖아", "translation_notes": "", "relation": {"type": "setup_chain", "group": "br_a", "role": "continuation", "ref": [29, 30], "auto_hints": []} },
+    { "id": 31, "section": "bridge", "type": "sung", "text": "I can get whoever I choose", "translation": "원하는 사람은 누구든 가질 수 있어", "translation_notes": "", "relation": {"type": "setup_payoff", "group": "br_b", "role": "setup", "ref": [31, 32], "auto_hints": []} },
+    { "id": 32, "section": "bridge", "type": "sung", "text": "Tonight I'm choosing you", "translation": "오늘 밤엔 네가 선택받은 거야", "translation_notes": "", "relation": {"type": "setup_payoff", "group": "br_b", "role": "payoff", "ref": [31, 32], "auto_hints": ["fragment"]} },
+    { "id": 33, "section": "chorus3", "type": "sung", "text": "Do you want me? Do you want me? Do you want me?", "translation": "날 원해? 날 원해? 날 원해?", "translation_notes": "" },
+    { "id": 34, "section": "chorus3", "type": "sung", "text": "I need to know", "translation": "알아야 해", "translation_notes": "" },
+    { "id": 35, "section": "chorus3", "type": "sung", "text": "'Cause I want you bad and I'm not holding back", "translation": "왜냐면 난 정말 원하거든, 더 이상 참을 수 없어", "translation_notes": "" },
+    { "id": 36, "section": "chorus3", "type": "sung", "text": "I need to know", "translation": "알아야 해", "translation_notes": "" }
+  ],
+
+  "td": {
+    "run a game":                { "ko": "속이다 / 조종하다", "context": "상대를 이용하거나 농락하는 행위" },
+    "be down":                   { "ko": "동의하다 / 함께하고 싶다", "context": "Are you down? = 같이 할래? 구어체" },
+    "working with":              { "ko": "가지고 있는 것 / 자기 매력", "context": "what I'm working with = 내가 가진 것들" },
+    "hold down":                 { "ko": "붙잡다 / 안정감을 주다", "context": "hold me down = 내 곁에 있어줘" },
+    "want bad":                  { "ko": "간절히 원하다", "context": "badly의 구어체. 강한 욕망 표현" },
+    "holding back":              { "ko": "억제하다 / 참다", "context": "not holding back = 더 이상 안 참겠다" },
+    "come and get it":           { "ko": "와서 가져가 / 행동해", "context": "적극적으로 나서라는 초대/도전" },
+    "baddest":                   { "ko": "가장 핫한 / 가장 섹시한", "context": "bad의 슬랭 최상급. 매력/자신감의 극치" },
+    "know what you mean":        { "ko": "속마음을 안다", "context": "표면적 말 뒤의 진짜 의도를 간파" }
+  },
+
+  "tm": [
+    { "id": 1, "source": "I'm not tryna run a game on you", "target": "게임하려는 게 아니야", "score": 0.85, "notes": "run a game 슬랭" },
+    { "id": 2, "source": "I just wanna know if you'd be down too", "target": "너도 같은 마음인지 알고 싶어", "score": 0.85, "notes": "be down 슬랭" },
+    { "id": 3, "source": "Can you handle what I'm working with?", "target": "내가 가진 걸 감당할 수 있어?", "score": 0.85, "notes": "프리코러스 반복" },
+    { "id": 4, "source": "Do you want me?", "target": "날 원해?", "score": 0.85, "notes": "코러스 반복" },
+    { "id": 5, "source": "'Cause I want you bad and I'm not holding back", "target": "왜냐면 난 정말 원하거든, 더 이상 참을 수 없어", "score": 0.85, "notes": "코러스 반복" },
+    { "id": 6, "source": "I need to know", "target": "알아야 해", "score": 0.85, "notes": "코러스/타이틀 반복" },
+    { "id": 7, "source": "I'm the baddest in the room", "target": "나 여기서 제일 핫해", "score": 0.85, "notes": "baddest 슬랭" },
+    { "id": 8, "source": "Tonight I'm choosing you", "target": "오늘 밤엔 네가 선택받은 거야", "score": 0.85, "notes": "" },
+    { "id": 9, "source": "So if you want it come and get it", "target": "원하면 와서 가져가", "score": 0.85, "notes": "come and get it" },
+    { "id": 10, "source": "Don't be wasting all my time", "target": "내 시간 낭비하지 말고", "score": 0.85, "notes": "" }
+  ]
+}

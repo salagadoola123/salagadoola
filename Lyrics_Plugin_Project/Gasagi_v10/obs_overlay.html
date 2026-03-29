@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>OBS Lyrics Overlay</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ─── OBS 브라우저 소스: 배경 투명 필수 ─── */
+  :root {
+    --accent: #a8ff78;
+    --accent2: #78ffd6;
+    --glow: rgba(168, 255, 120, 0.6);
+    --shadow: rgba(0,0,0,0.9);
+    --ws-port: 6789;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html, body {
+    width: 1920px;
+    height: 200px;
+    background: transparent !important;
+    overflow: hidden;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  /* ─── 메인 오버레이 컨테이너 ─── */
+  .overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+    gap: 6px;
+    pointer-events: none;
+  }
+
+  /* ─── 곡 정보 바 ─── */
+  .track-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 18px 6px 10px;
+    background: rgba(0,0,0,0.55);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 40px;
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .track-bar.show { opacity: 1; transform: translateY(0); }
+
+  .album-art {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: linear-gradient(135deg, #333, #111);
+    animation: spin 8s linear infinite;
+    animation-play-state: paused;
+  }
+  .album-art.playing { animation-play-state: running; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .track-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .track-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.8);
+    line-height: 1.2;
+  }
+  .track-artist {
+    font-size: 10px;
+    color: rgba(255,255,255,0.55);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+
+  .playing-indicator {
+    display: flex;
+    gap: 2px;
+    align-items: flex-end;
+    height: 14px;
+    margin-left: 4px;
+  }
+  .bar {
+    width: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+    animation: eq 0.8s ease-in-out infinite alternate;
+  }
+  .bar:nth-child(1) { height: 6px; animation-delay: 0s; }
+  .bar:nth-child(2) { height: 12px; animation-delay: 0.2s; }
+  .bar:nth-child(3) { height: 8px; animation-delay: 0.4s; }
+  .bar:nth-child(4) { height: 14px; animation-delay: 0.1s; }
+  @keyframes eq {
+    from { transform: scaleY(0.3); }
+    to { transform: scaleY(1); }
+  }
+
+  /* ─── 가사 레이어 ─── */
+  .lyrics-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-height: 80px;
+    justify-content: center;
+  }
+
+  .lyric-prev, .lyric-next {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.28);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.9);
+    text-align: center;
+    max-width: 900px;
+    transition: all 0.4s ease;
+    filter: blur(0.8px);
+  }
+
+  .lyric-current-wrap {
+    position: relative;
+    text-align: center;
+  }
+
+  .lyric-current {
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+    max-width: 1200px;
+    line-height: 1.3;
+    /* 겹겹이 쌓인 드롭 쉐도우로 가독성 극대화 */
+    text-shadow:
+      0 0 20px var(--glow),
+      0 0 40px rgba(168,255,120,0.3),
+      0 2px 4px rgba(0,0,0,1),
+      0 4px 16px rgba(0,0,0,0.95),
+      0 8px 32px rgba(0,0,0,0.8);
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+    transition: all 0.35s cubic-bezier(0.34,1.4,0.64,1);
+  }
+  .lyric-current.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* 밑줄 애니메이션 */
+  .lyric-underline {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    border-radius: 1px;
+    width: 0;
+    margin: 4px auto 0;
+    transition: width 0.6s ease 0.15s;
+  }
+  .lyric-current.visible ~ .lyric-underline { width: 50%; }
+
+  /* ─── 연결 상태 뱃지 ─── */
+  .conn-badge {
+    position: fixed;
+    top: 10px; right: 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.4);
+    display: flex; align-items: center; gap: 5px;
+    transition: all 0.3s;
+    /* OBS에서 숨기려면 display:none */
+  }
+  .conn-dot { width:6px; height:6px; border-radius:50%; background:#555; }
+  .conn-badge.connected .conn-dot { background:var(--accent); box-shadow:0 0 6px var(--accent); }
+  .conn-badge.connected { border-color: rgba(168,255,120,0.3); color:rgba(255,255,255,0.7); }
+  .conn-badge.error .conn-dot { background:#ff5555; box-shadow:0 0 6px #ff5555; }
+
+  /* ─── 진행 바 (얇은 라인) ─── */
+  .progress-line {
+    position: fixed;
+    bottom: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    width: 0%;
+    transition: width 1s linear;
+    box-shadow: 0 0 8px var(--glow);
+  }
+
+  /* ─── 애니메이션: 새 곡 등장 ─── */
+  @keyframes fadeInUp {
+    from { opacity:0; transform: translateY(20px); }
+    to { opacity:1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- 연결 상태 뱃지 (방송에서 숨기려면 제거) -->
+<div class="conn-badge" id="connBadge">
+  <div class="conn-dot"></div>
+  <span id="connText">연결 중...</span>
+</div>
+
+<!-- 진행 바 -->
+<div class="progress-line" id="progressLine"></div>
+
+<!-- 메인 오버레이 -->
+<div class="overlay">
+
+  <!-- 가사 영역 -->
+  <div class="lyrics-wrap" id="lyricsWrap">
+    <div class="lyric-prev" id="lyricPrev"></div>
+    <div class="lyric-current-wrap">
+      <div class="lyric-current" id="lyricCurrent"></div>
+      <div class="lyric-underline" id="lyricUnderline"></div>
+    </div>
+    <div class="lyric-next" id="lyricNext"></div>
+  </div>
+
+  <!-- 곡 정보 바 -->
+  <div class="track-bar" id="trackBar">
+    <img class="album-art" id="albumArt" src="" alt="">
+    <div class="track-info">
+      <div class="track-title" id="trackTitle">곡 제목</div>
+      <div class="track-artist" id="trackArtist">아티스트</div>
+    </div>
+    <div class="playing-indicator" id="eqBars">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ═══════════════════════════════════════════════
+// OBS Overlay - WebSocket 클라이언트
+// ═══════════════════════════════════════════════
+
+const WS_URL = 'ws://localhost:6789';
+const RECONNECT_DELAY = 3000;
+
+let lyrics = [];
+let currentIdx = -1;
+let currentPosition = 0;
+let trackDuration = 0;
+let isPlaying = false;
+let positionTicker = null;
+let lastTickTime = null;
+
+// ── WebSocket 연결 ──
+function connect() {
+  const badge = document.getElementById('connBadge');
+  const connText = document.getElementById('connText');
+
+  badge.className = 'conn-badge';
+  connText.textContent = '연결 중...';
+
+  const ws = new WebSocket(WS_URL);
+
+  ws.onopen = () => {
+    badge.className = 'conn-badge connected';
+    connText.textContent = 'LIVE';
+    console.log('✅ 브릿지 서버 연결됨');
+  };
+
+  ws.onmessage = (e) => {
+    try {
+      const data = JSON.parse(e.data);
+      handleMessage(data);
+    } catch(err) {
+      console.error('메시지 파싱 오류:', err);
+    }
+  };
+
+  ws.onclose = () => {
+    badge.className = 'conn-badge error';
+    connText.textContent = '재연결...';
+    stopTicker();
+    setTimeout(connect, RECONNECT_DELAY);
+  };
+
+  ws.onerror = () => {
+    badge.className = 'conn-badge error';
+    connText.textContent = 'ERROR';
+  };
+}
+
+// ── 메시지 처리 ──
+function handleMessage(data) {
+  if (data.type === 'stopped') {
+    hideLyrics();
+    return;
+  }
+
+  if (data.type === 'update' || data.track) {
+    const track = data.track;
+
+    // 새 곡 감지
+    const trackKey = `${track.artist}||${track.title}`;
+    const prevKey = document.getElementById('trackTitle').dataset.key || '';
+
+    if (trackKey !== prevKey) {
+      // 가사 업데이트
+      lyrics = data.lyrics || [];
+      currentIdx = -1;
+      showTrackInfo(track);
+    }
+
+    // 재생 위치 업데이트
+    currentPosition = track.position || 0;
+    trackDuration = track.duration || 0;
+    isPlaying = track.is_playing;
+
+    // 로컬 ticker로 부드럽게 보간
+    if (isPlaying) {
+      startTicker();
+    } else {
+      stopTicker();
+    }
+
+    updateLyrics(currentPosition);
+    updateProgress(currentPosition, trackDuration);
+  }
+}
+
+// ── 곡 정보 표시 ──
+function showTrackInfo(track) {
+  const bar = document.getElementById('trackBar');
+  const titleEl = document.getElementById('trackTitle');
+  const artistEl = document.getElementById('trackArtist');
+  const artEl = document.getElementById('albumArt');
+  const eqBars = document.getElementById('eqBars');
+
+  // 잠깐 숨겼다가 새 정보로 표시 (전환 애니메이션)
+  bar.classList.remove('show');
+  setTimeout(() => {
+    titleEl.textContent = track.title || '알 수 없는 곡';
+    titleEl.dataset.key = `${track.artist}||${track.title}`;
+    artistEl.textContent = track.artist || '';
+
+    if (track.thumbnail) {
+      artEl.src = track.thumbnail;
+    } else {
+      artEl.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect fill="%23222" width="32" height="32" rx="16"/><text x="16" y="20" text-anchor="middle" font-size="14">🎵</text></svg>';
+    }
+
+    artEl.className = 'album-art' + (track.is_playing ? ' playing' : '');
+    bar.classList.add('show');
+  }, 300);
+}
+
+// ── 가사 싱크 ──
+function updateLyrics(time) {
+  if (!lyrics.length) return;
+
+  // 이진탐색
+  let lo = 0, hi = lyrics.length - 1, idx = -1;
+  while (lo <= hi) {
+    const mid = (lo + hi) >> 1;
+    if (lyrics[mid].time <= time) { idx = mid; lo = mid + 1; }
+    else hi = mid - 1;
+  }
+
+  if (idx === currentIdx) return;
+  currentIdx = idx;
+
+  const currentEl = document.getElementById('lyricCurrent');
+  const prevEl = document.getElementById('lyricPrev');
+  const nextEl = document.getElementById('lyricNext');
+  const underline = document.getElementById('lyricUnderline');
+
+  if (idx < 0) {
+    currentEl.classList.remove('visible');
+    prevEl.textContent = '';
+    nextEl.textContent = '';
+    return;
+  }
+
+  // 전환 애니메이션
+  currentEl.classList.remove('visible');
+  underline.style.width = '0';
+
+  requestAnimationFrame(() => {
+    currentEl.textContent = lyrics[idx].text;
+    prevEl.textContent = idx > 0 ? lyrics[idx-1].text : '';
+    nextEl.textContent = idx < lyrics.length-1 ? lyrics[idx+1].text : '';
+
+    requestAnimationFrame(() => {
+      currentEl.classList.add('visible');
+    });
+  });
+}
+
+function hideLyrics() {
+  document.getElementById('lyricCurrent').classList.remove('visible');
+  document.getElementById('lyricPrev').textContent = '';
+  document.getElementById('lyricNext').textContent = '';
+  document.getElementById('trackBar').classList.remove('show');
+  stopTicker();
+}
+
+// ── 진행 바 ──
+function updateProgress(pos, dur) {
+  if (!dur) return;
+  document.getElementById('progressLine').style.width = ((pos/dur)*100) + '%';
+}
+
+// ── 로컬 보간 ticker ──
+// 서버 폴링(1초)과 실제 재생 사이의 갭을 rAF로 메움
+function startTicker() {
+  if (positionTicker) return;
+  lastTickTime = null;
+  positionTicker = requestAnimationFrame(tickPosition);
+}
+
+function stopTicker() {
+  if (positionTicker) {
+    cancelAnimationFrame(positionTicker);
+    positionTicker = null;
+  }
+}
+
+function tickPosition(ts) {
+  if (!isPlaying) { positionTicker = null; return; }
+  if (lastTickTime === null) lastTickTime = ts;
+
+  const delta = Math.min((ts - lastTickTime) / 1000, 0.1);
+  lastTickTime = ts;
+  currentPosition += delta;
+
+  updateLyrics(currentPosition);
+  updateProgress(currentPosition, trackDuration);
+
+  positionTicker = requestAnimationFrame(tickPosition);
+}
+
+// ── 시작 ──
+connect();
+</script>
+</body>
+</html>

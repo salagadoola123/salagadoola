@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Pretendard:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg:     #0e0e0f;
+    --bg2:    #161618;
+    --bg3:    #1e1e21;
+    --border: rgba(255,255,255,0.07);
+    --green:  #00c73c;
+    --green2: rgba(0,199,60,0.15);
+    --red:    #ff3b3b;
+    --text:   #e8e8ea;
+    --muted:  #5a5a62;
+    --accent: #00c73c;
+    --mono:   'DM Mono', monospace;
+    --sans:   'Pretendard', 'Noto Sans KR', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    width: 260px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 12px;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  /* ── 헤더 ── */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo {
+    width: 22px; height: 22px;
+    background: var(--green);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .logo svg { width: 13px; height: 13px; }
+  .title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: var(--text);
+  }
+  .live-pill {
+    display: none;
+    font-family: var(--mono);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: var(--red);
+    padding: 2px 6px;
+    border: 1px solid rgba(255,59,59,0.35);
+    border-radius: 100px;
+    background: rgba(255,59,59,0.08);
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  .live-pill.show { display: inline; }
+
+  @keyframes pulse {
+    0%,100% { opacity:1; }
+    50%      { opacity:0.5; }
+  }
+
+  /* ── 상태 카드 ── */
+  .status-card {
+    margin: 10px 12px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 0;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .stat-label { font-size: 10px; color: var(--muted); }
+  .stat-value {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text);
+  }
+  .stat-value.ok { color: var(--green); }
+  .stat-value.err { color: var(--red); }
+  .conn-dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--muted);
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  .conn-dot.on {
+    background: var(--green);
+    box-shadow: 0 0 6px var(--green);
+    animation: dot-pulse 2s ease-in-out infinite;
+  }
+  @keyframes dot-pulse {
+    0%,100% { box-shadow: 0 0 4px var(--green); }
+    50%      { box-shadow: 0 0 10px var(--green); }
+  }
+
+  /* ── 구분선 ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 2px 12px;
+  }
+
+  /* ── 섹션 ── */
+  .section { padding: 8px 12px; }
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  /* ── 셀렉트 ── */
+  .field { margin-bottom: 7px; }
+  .field-label {
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  select {
+    width: 100%;
+    background: var(--bg3);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 6px 9px;
+    font-family: var(--sans);
+    font-size: 11.5px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%235a5a62' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 9px center;
+    padding-right: 26px;
+    transition: border-color 0.15s;
+  }
+  select:focus { outline: none; border-color: var(--green); }
+  select:hover { border-color: rgba(255,255,255,0.15); }
+
+  /* ── 슬라이더 ── */
+  .slider-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  input[type=range] {
+    flex: 1;
+    -webkit-appearance: none;
+    height: 3px;
+    background: var(--bg3);
+    border-radius: 2px;
+    accent-color: var(--green);
+    cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    background: var(--green);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 6px rgba(0,199,60,0.5);
+    cursor: pointer;
+    transition: transform 0.1s;
+  }
+  input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+  input[type=range]::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, var(--green) 0%, var(--green) var(--pct,0%), var(--bg3) var(--pct,0%));
+    height: 3px; border-radius: 2px;
+  }
+  .slider-val {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--green);
+    min-width: 32px;
+    text-align: right;
+  }
+
+  /* prev count number input */
+  input[type=number] {
+    width: 40px;
+    background: var(--bg3);
+    color: var(--green);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 4px 2px;
+    -moz-appearance: textfield;
+  }
+  input[type=number]::-webkit-inner-spin-button { display: none; }
+  input[type=number]:focus { outline: none; border-color: var(--green); }
+
+  /* ── 미리보기 ── */
+  .preview-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 6px;
+  }
+  .preview-box {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 8px 6px;
+    text-align: center;
+    font-size: 13px;
+    min-height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .preview-box.ko { color: rgba(255,255,255,0.65); }
+  .preview-box.en { color: var(--red); }
+
+  /* ── D-PAD ── */
+  .dpad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 4px;
+  }
+  .dpad-btn {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 12px;
+    padding: 8px;
+    cursor: pointer;
+    transition: background 0.1s, border-color 0.1s, transform 0.1s;
+    display: flex; align-items: center; justify-content: center;
+    user-select: none;
+  }
+  .dpad-btn:hover  { background: var(--bg2); border-color: rgba(255,255,255,0.15); }
+  .dpad-btn:active { background: #2a2a2e; transform: scale(0.93); }
+  .dpad-empty {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px;
+  }
+
+  /* ── 적용 버튼 ── */
+  .apply-btn {
+    width: calc(100% - 24px);
+    margin: 8px 12px 12px;
+    padding: 9px;
+    background: var(--green);
+    color: #000;
+    border: none;
+    border-radius: 9px;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.1s;
+    letter-spacing: -0.2px;
+  }
+  .apply-btn:hover  { opacity: 0.88; }
+  .apply-btn:active { transform: scale(0.98); }
+  .apply-btn.applied {
+    background: var(--bg3);
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<!-- 헤더 -->
+<div class="header">
+  <div class="header-left">
+    <div class="logo">
+      <!-- VIBE 음파 아이콘 -->
+      <svg viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1"   y="4.5" width="2" height="4"   rx="1" fill="white"/>
+        <rect x="4"   y="2.5" width="2" height="8"   rx="1" fill="white"/>
+        <rect x="7"   y="1"   width="2" height="11"  rx="1" fill="white"/>
+        <rect x="10"  y="2.5" width="2" height="8"   rx="1" fill="white"/>
+      </svg>
+    </div>
+    <span class="title">VIBE 가사지</span>
+  </div>
+  <span class="live-pill" id="live-badge">LIVE</span>
+</div>
+
+<!-- 상태 카드 -->
+<div class="status-card">
+  <div class="stat">
+    <span class="stat-label">브릿지 서버</span>
+    <span class="stat-value" id="val-ws">
+      <span class="conn-dot" id="dot-ws"></span>—
+    </span>
+  </div>
+  <div class="stat">
+    <span class="stat-label">가사</span>
+    <span class="stat-value" id="val-lyrics">—</span>
+  </div>
+  <div class="stat">
+    <span class="stat-label">재생위치</span>
+    <span class="stat-value" id="val-pos">—</span>
+  </div>
+  <div class="stat">
+    <span class="stat-label">webPlayer</span>
+    <span class="stat-value" id="val-wp">—</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- 폰트 설정 -->
+<div class="section">
+  <div class="section-label">폰트 설정</div>
+
+  <div class="field">
+    <div class="field-label">🇰🇷 한글 폰트</div>
+    <select id="font-ko">
+      <option value="'NanumOgBiCe','Noto Sans KR',sans-serif">나눔오지비체 (기본)</option>
+      <option value="'SUIT','Noto Sans KR',sans-serif">SUIT 가늘게</option>
+      <option value="'Noto Sans KR',sans-serif">Noto Sans KR</option>
+      <option value="'맑은 고딕','Malgun Gothic',sans-serif">맑은 고딕</option>
+      <option value="'궁서체',serif">궁서체</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <div class="field-label">🔤 영어 폰트</div>
+    <select id="font-en">
+      <option value="'NanumOgBiCe','Noto Sans KR',sans-serif">나눔오지비체 (기본)</option>
+      <option value="Gabriola,serif">Gabriola</option>
+      <option value="Impact,sans-serif">Impact</option>
+      <option value="'SUIT',sans-serif">SUIT 가늘게</option>
+      <option value="Georgia,serif">Georgia</option>
+      <option value="'Times New Roman',serif">Times New Roman</option>
+      <option value="Tahoma,sans-serif">Tahoma</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <div class="field-label">📏 폰트 크기</div>
+    <div class="slider-row">
+      <input type="range" id="size-slider" min="14" max="60" value="30" step="1">
+      <span class="slider-val" id="size-label">30px</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">📜 이전 가사 줄 수</div>
+    <div class="slider-row">
+      <input type="range" id="prev-slider" min="1" max="10" value="1" step="1">
+      <input type="number" id="prev-label" min="1" max="10" value="1">
+    </div>
+  </div>
+
+  <div class="preview-row">
+    <div class="preview-box ko" id="preview-ko">한글 가사</div>
+    <div class="preview-box en" id="preview-en">Lyrics</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- 싱크 오프셋 -->
+<div class="section">
+  <div class="section-label">싱크 오프셋</div>
+  <div class="field">
+    <div class="field-label" style="justify-content:space-between;">
+      <span>⏱ 가사 타이밍 보정</span>
+      <button id="offset-reset" style="background:none;border:none;color:var(--muted);font-size:10px;cursor:pointer;padding:0;">리셋</button>
+    </div>
+    <div class="slider-row">
+      <input type="range" id="offset-slider" min="-3" max="3" value="0" step="0.1">
+      <span class="slider-val" id="offset-label">0.0s</span>
+    </div>
+    <div style="font-size:10px; color:var(--muted); margin-top:4px; text-align:center;">
+      음수 = 가사 늦게 · 양수 = 가사 빠르게
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<div class="section">
+  <div class="section-label">위치 조절</div>
+  <div class="dpad">
+    <div class="dpad-empty"></div>
+    <button class="dpad-btn" id="btn-up">▲</button>
+    <div class="dpad-empty"></div>
+    <button class="dpad-btn" id="btn-left">◀</button>
+    <div class="dpad-empty"></div>
+    <button class="dpad-btn" id="btn-right">▶</button>
+    <div class="dpad-empty"></div>
+    <button class="dpad-btn" id="btn-down">▼</button>
+    <div class="dpad-empty"></div>
+  </div>
+  <div class="slider-row" style="margin-top:8px;">
+    <span style="color:var(--muted); font-size:10px; white-space:nowrap;">이동 단위</span>
+    <input type="range" id="step-slider" min="5" max="50" value="10" step="5">
+    <span class="slider-val" id="step-label">10px</span>
+  </div>
+</div>
+
+<button class="apply-btn" id="apply-btn">✓ 적용</button>
+
+<script src="remote.js"></script>
+</body>
+</html>

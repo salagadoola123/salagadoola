@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "title": "Good Days",
+    "artist": "SZA",
+    "album": "Good Days (Single)",
+    "year": 2020,
+    "genre": ["R&B", "Neo-Soul", "Alt-R&B"],
+    "language": "en",
+    "notes": "집착과 자기 치유 사이를 오가는 내면 독백. SZA 특유의 흘러가는 듯한 멜로디에 슬랭과 감각적 비유가 혼재. 직접적이지 않고 의식의 흐름처럼 전개."
+  },
+
+  "structure": [
+    { "section": "intro", "label": "인트로", "span": [1, 2] },
+    { "section": "verse1", "label": "벌스1", "span": [3, 8] },
+    { "section": "chorus1", "label": "코러스1", "span": [9, 13] },
+    { "section": "verse2", "label": "벌스2", "span": [14, 21] },
+    { "section": "chorus2", "label": "코러스2", "span": [22, 26] },
+    { "section": "bridge", "label": "브릿지", "span": [27, 30] },
+    { "section": "outro", "label": "아웃트로", "span": [31, 33] }
+  ],
+
+  "lyrics": [
+    { "id":  1, "section": "intro", "type": "sung", "text": "Movin' on, wishin' well", "translation": "이제 넘어가려 해, 잘 되길 바라면서", "translation_notes": "wishin' well = 상대의 행복을 비는 척하지만 복잡한 감정", "relation": {"type": "parallel", "group": "in_a", "role": "anchor", "ref": [1, 2], "auto_hints": ["fragment"]} },
+    { "id":  2, "section": "intro", "type": "sung", "text": "Gotta turn my own self on somehow", "translation": "어떻게든 스스로 동기부여해야 해", "translation_notes": "turn on = 설레게 하다, 의욕 불러일으키다", "relation": {"type": "parallel", "group": "in_a", "role": "continuation", "ref": [1, 2], "auto_hints": []} },
+    { "id":  3, "section": "verse1", "type": "sung", "text": "Still the one I need", "translation": "여전히 네가 필요해", "translation_notes": "", "relation": {"type": "setup_chain", "group": "v1a", "role": "anchor", "ref": [3, 4], "auto_hints": []} },
+    { "id":  4, "section": "verse1", "type": "sung", "text": "To get it up for anybody else", "translation": "다른 누구한테 마음을 열 수가 없어", "translation_notes": "get it up = 감정/열정을 끌어올리다. 슬랭", "relation": {"type": "setup_chain", "group": "v1a", "role": "payoff", "ref": [3, 4], "auto_hints": []} },
+    { "id":  5, "section": "verse1", "type": "sung", "text": "Thoughts of you subside", "translation": "네 생각이 잦아들 때도 있어", "translation_notes": "subside = 가라앉다, 수그러들다", "relation": {"type": "cause_effect", "group": "v1b", "role": "cause", "ref": [5, 6], "auto_hints": ["fragment"]} },
+    { "id":  6, "section": "verse1", "type": "sung", "text": "Then I go and ruin it myself", "translation": "그러다 내가 또 스스로 망쳐버려", "translation_notes": "", "relation": {"type": "cause_effect", "group": "v1b", "role": "effect", "ref": [5, 6], "auto_hints": []} },
+    { "id":  7, "section": "verse1", "type": "sung", "text": "I'm so bad at letting go", "translation": "놓아주는 게 이렇게 힘들어", "translation_notes": "letting go = 감정/관계를 놓아주다", "relation": {"type": "setup_payoff", "group": "v1c", "role": "setup", "ref": [7, 8], "auto_hints": []} },
+    { "id":  8, "section": "verse1", "type": "sung", "text": "Is it my ego?", "translation": "내 자존심 문제인 걸까?", "translation_notes": "ego = 자존심, 자아. 자기 의심", "relation": {"type": "setup_payoff", "group": "v1c", "role": "payoff", "ref": [7, 8], "auto_hints": ["fragment"]} },
+    { "id":  9, "section": "chorus1", "type": "sung", "text": "I could be your good time", "translation": "내가 네 좋은 시간이 될 수 있는데", "translation_notes": "good time = 즐겁고 행복한 시간", "relation": {"type": "parallel", "group": "ch_a", "role": "image", "ref": [9, 10], "auto_hints": []} },
+    { "id": 10, "section": "chorus1", "type": "sung", "text": "I could be your weekend", "translation": "네 주말이 될 수 있는데", "translation_notes": "", "relation": {"type": "parallel", "group": "ch_a", "role": "image", "ref": [9, 10], "auto_hints": []} },
+    { "id": 11, "section": "chorus1", "type": "sung", "text": "I just wanna feel alright", "translation": "그냥 괜찮아지고 싶어", "translation_notes": "feel alright = 아프지 않은 보통의 상태", "relation": {"type": "setup_payoff", "group": "ch_b", "role": "setup", "ref": [11, 12, 13], "auto_hints": []} },
+    { "id": 12, "section": "chorus1", "type": "sung", "text": "I just need some good days", "translation": "그냥 좋은 날들이 필요해", "translation_notes": "곡 제목이자 핵심. 치유의 소망", "relation": {"type": "setup_payoff", "group": "ch_b", "role": "continuation", "ref": [11, 12, 13], "auto_hints": []} },
+    { "id": 13, "section": "chorus1", "type": "sung", "text": "I just need some good days, baby", "translation": "그냥 좋은 날들이 좀 필요해, 제발", "translation_notes": "", "relation": {"type": "setup_payoff", "group": "ch_b", "role": "echo", "ref": [11, 12, 13], "auto_hints": []} },
+    { "id": 14, "section": "verse2", "type": "sung", "text": "Still the one I see", "translation": "눈에 아직도 네가 보여", "translation_notes": "", "relation": {"type": "parallel", "group": "v2a", "role": "anchor", "ref": [14, 15], "auto_hints": []} },
+    { "id": 15, "section": "verse2", "type": "sung", "text": "Whenever I close my eyes at night", "translation": "밤에 눈을 감을 때마다", "translation_notes": "", "relation": {"type": "parallel", "group": "v2a", "role": "continuation", "ref": [14, 15], "auto_hints": []} },
+    { "id": 16, "section": "verse2", "type": "sung", "text": "Petty little me", "translation": "쪼잔한 나야", "translation_notes": "petty = 속 좁은, 쪼잔한. 자조적 표현", "relation": {"type": "setup_payoff", "group": "v2b", "role": "setup", "ref": [16, 17], "auto_hints": ["fragment"]} },
+    { "id": 17, "section": "verse2", "type": "sung", "text": "Tryna keep you off my mind", "translation": "네 생각 지우려고 발버둥 치고 있어", "translation_notes": "tryna = trying to. 구어체", "relation": {"type": "setup_payoff", "group": "v2b", "role": "payoff", "ref": [16, 17], "auto_hints": []} },
+    { "id": 18, "section": "verse2", "type": "sung", "text": "Way too good at goodbyes", "translation": "이별에는 너무 익숙한데", "translation_notes": "good at goodbyes = 이별을 잘 하는 사람. 반어적", "relation": {"type": "contrast", "group": "v2c", "role": "claim", "ref": [18, 19], "auto_hints": ["fragment"]} },
+    { "id": 19, "section": "verse2", "type": "sung", "text": "Terrible at moving on", "translation": "털어내는 건 정말 못해", "translation_notes": "moving on = 이전 관계/감정에서 벗어나기", "relation": {"type": "contrast", "group": "v2c", "role": "rebuttal", "ref": [18, 19], "auto_hints": ["fragment"]} },
+    { "id": 20, "section": "verse2", "type": "sung", "text": "Every time I think I'm done", "translation": "다 끝났다고 생각할 때마다", "translation_notes": "", "relation": {"type": "setup_payoff", "group": "v2d", "role": "setup", "ref": [20, 21], "auto_hints": []} },
+    { "id": 21, "section": "verse2", "type": "sung", "text": "I find myself undone", "translation": "다시 무너져 있는 나를 발견해", "translation_notes": "undone = 다시 무너진, 되돌려진 상태", "relation": {"type": "setup_payoff", "group": "v2d", "role": "payoff", "ref": [20, 21], "auto_hints": []} },
+    { "id": 22, "section": "chorus2", "type": "sung", "text": "I could be your good time", "translation": "내가 네 좋은 시간이 될 수 있는데", "translation_notes": "" },
+    { "id": 23, "section": "chorus2", "type": "sung", "text": "I could be your weekend", "translation": "네 주말이 될 수 있는데", "translation_notes": "" },
+    { "id": 24, "section": "chorus2", "type": "sung", "text": "I just wanna feel alright", "translation": "그냥 괜찮아지고 싶어", "translation_notes": "" },
+    { "id": 25, "section": "chorus2", "type": "sung", "text": "I just need some good days", "translation": "그냥 좋은 날들이 필요해", "translation_notes": "" },
+    { "id": 26, "section": "chorus2", "type": "sung", "text": "I just need some good days, baby", "translation": "그냥 좋은 날들이 좀 필요해, 제발", "translation_notes": "" },
+    { "id": 27, "section": "bridge", "type": "sung", "text": "Inhale, then I exhale", "translation": "들이쉬고, 내쉬고", "translation_notes": "호흡 = 의식적인 진정 시도", "relation": {"type": "setup_chain", "group": "br_a", "role": "anchor", "ref": [27, 28, 29, 30], "auto_hints": []} },
+    { "id": 28, "section": "bridge", "type": "sung", "text": "I know I'll be just fine", "translation": "괜찮아질 거 알아", "translation_notes": "", "relation": {"type": "setup_chain", "group": "br_a", "role": "continuation", "ref": [27, 28, 29, 30], "auto_hints": []} },
+    { "id": 29, "section": "bridge", "type": "sung", "text": "But right now I'm not okay", "translation": "근데 지금 이 순간은 아직 아니야", "translation_notes": "치유의 과정 중임을 솔직하게 인정", "relation": {"type": "setup_chain", "group": "br_a", "role": "contrast", "ref": [27, 28, 29, 30], "auto_hints": ["starts_with_conjunction"]} },
+    { "id": 30, "section": "bridge", "type": "sung", "text": "Let me be not okay", "translation": "지금 괜찮지 않아도 되게 그냥 둬", "translation_notes": "자기 감정을 억지로 누르지 않겠다는 선언", "relation": {"type": "setup_chain", "group": "br_a", "role": "resolution", "ref": [27, 28, 29, 30], "auto_hints": ["fragment"]} },
+    { "id": 31, "section": "outro", "type": "sung", "text": "Someday I'll be good", "translation": "언젠가는 괜찮아지겠지", "translation_notes": "", "relation": {"type": "parallel", "group": "out_a", "role": "echo", "ref": [31, 32, 33], "auto_hints": ["starts_with_conjunction", "fragment"]} },
+    { "id": 32, "section": "outro", "type": "sung", "text": "Someday I'll be great", "translation": "언젠가는 완전히 나아지겠지", "translation_notes": "", "relation": {"type": "parallel", "group": "out_a", "role": "echo", "ref": [31, 32, 33], "auto_hints": ["starts_with_conjunction", "fragment"]} },
+    { "id": 33, "section": "outro", "type": "sung", "text": "Just not today", "translation": "오늘은 아직 아니지만", "translation_notes": "", "relation": {"type": "parallel", "group": "out_a", "role": "payoff", "ref": [31, 32, 33], "auto_hints": ["fragment"]} }
+  ],
+
+  "td": {
+    "wishin' well":              { "ko": "잘 되길 바라다", "context": "상대의 행복을 비는 척. 복잡한 감정 내포" },
+    "turn on":                   { "ko": "설레게 하다 / 의욕을 불러일으키다", "context": "문맥상 감정적 동기부여" },
+    "get it up":                 { "ko": "마음/열정을 끌어올리다", "context": "슬랭. 다른 사람에게 감정이 안 생긴다는 뜻" },
+    "subside":                   { "ko": "가라앉다 / 수그러들다", "context": "격렬한 감정이 잠시 줄어드는 것" },
+    "letting go":                { "ko": "놓아주다 / 내려놓다", "context": "집착하던 감정/관계를 포기하는 것" },
+    "petty":                     { "ko": "쪼잔한 / 속 좁은", "context": "자조적 표현. 사소한 것에 연연한다는 자기비판" },
+    "tryna":                     { "ko": "~하려고", "context": "trying to 구어체 축약" },
+    "moving on":                 { "ko": "털어내다 / 앞으로 나아가다", "context": "이전 관계/상황에서 심리적으로 벗어나기" },
+    "undone":                    { "ko": "다시 무너진 상태", "context": "done(끝냈다)의 반대. 원점으로 돌아간 느낌" },
+    "good time":                 { "ko": "즐겁고 행복한 시간", "context": "단순히 좋은 시간. 가볍고 긍정적인 뉘앙스" },
+    "feel alright":              { "ko": "괜찮은 상태가 되다", "context": "특별히 좋은 게 아닌, 그냥 아프지 않은 보통" },
+    "ego":                       { "ko": "자존심 / 자아", "context": "자신의 집착이 자존심에서 비롯된 건지 자문" }
+  },
+
+  "tm": [
+    { "id": 1, "source": "Movin' on, wishin' well", "target": "이제 넘어가려 해, 잘 되길 바라면서", "score": 0.85, "notes": "" },
+    { "id": 2, "source": "I'm so bad at letting go", "target": "놓아주는 게 이렇게 힘들어", "score": 0.85, "notes": "letting go 핵심 표현" },
+    { "id": 3, "source": "I could be your good time", "target": "내가 네 좋은 시간이 될 수 있는데", "score": 0.85, "notes": "코러스 반복" },
+    { "id": 4, "source": "I just wanna feel alright", "target": "그냥 괜찮아지고 싶어", "score": 0.85, "notes": "코러스 반복" },
+    { "id": 5, "source": "I just need some good days", "target": "그냥 좋은 날들이 필요해", "score": 0.85, "notes": "코러스 반복" },
+    { "id": 6, "source": "Petty little me", "target": "쪼잔한 나야", "score": 0.85, "notes": "petty 자조적 표현" },
+    { "id": 7, "source": "Tryna keep you off my mind", "target": "네 생각 지우려고 발버둥 치고 있어", "score": 0.85, "notes": "tryna 구어체" },
+    { "id": 8, "source": "Terrible at moving on", "target": "털어내는 건 정말 못해", "score": 0.85, "notes": "moving on" },
+    { "id": 9, "source": "Every time I think I'm done, I find myself undone", "target": "다 끝났다고 생각할 때마다 다시 무너져 있는 나를 발견해", "score": 0.85, "notes": "done/undone 대비" },
+    { "id": 10, "source": "Let me be not okay", "target": "지금 괜찮지 않아도 되게 그냥 둬", "score": 0.85, "notes": "브릿지 핵심" },
+    { "id": 11, "source": "But right now I'm not okay", "target": "근데 지금 이 순간은 아직 아니야", "score": 0.85, "notes": "" },
+    { "id": 12, "source": "Someday I'll be good", "target": "언젠가는 괜찮아지겠지", "score": 0.85, "notes": "" }
+  ]
+}

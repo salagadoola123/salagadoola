@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "title": "Watermelon Sugar",
+    "artist": "Harry Styles",
+    "album": "Fine Line",
+    "year": 2019,
+    "genre": ["Pop", "Indie Pop", "Soft Rock"],
+    "language": "en",
+    "notes": "감각적 비유 중심의 여름 팝. sugar/sweet 계열 은유가 Sweet Serotonin과 보완 관계. 슬랭 밀도 낮고 관능적 이미저리 중심. 쉽고 직관적인 영어."
+  },
+
+  "structure": [
+    { "section": "verse1", "label": "벌스1", "span": [1, 6] },
+    { "section": "prechorus1", "label": "프리코러스1", "span": [7, 8] },
+    { "section": "chorus1", "label": "코러스1", "span": [9, 12] },
+    { "section": "verse2", "label": "벌스2", "span": [13, 18] },
+    { "section": "prechorus2", "label": "프리코러스2", "span": [19, 20] },
+    { "section": "chorus2", "label": "코러스2", "span": [21, 24] },
+    { "section": "bridge", "label": "브릿지", "span": [25, 26] },
+    { "section": "chorus3", "label": "코러스3", "span": [27, 30] },
+    { "section": "outro", "label": "아웃트로", "span": [31, 32] }
+  ],
+
+  "lyrics": [
+    { "id":  1, "section": "verse1", "type": "sung", "text": "Tastes like strawberries on a summer evening", "translation": "여름 저녁에 먹는 딸기 맛이야", "translation_notes": "", "relation": {"type": "parallel", "group": "v1a", "role": "anchor", "ref": [1, 2], "auto_hints": []} },
+    { "id":  2, "section": "verse1", "type": "sung", "text": "And it sounds just like a song", "translation": "마치 노래처럼 들려", "translation_notes": "", "relation": {"type": "parallel", "group": "v1a", "role": "echo", "ref": [1, 2], "auto_hints": ["starts_with_conjunction"]} },
+    { "id":  3, "section": "verse1", "type": "sung", "text": "I want more berries and that summer feeling", "translation": "더 많은 딸기와 그 여름 감각이 원해", "translation_notes": "summer feeling = 여름의 들뜬 감각", "relation": {"type": "continuation", "group": "v1b", "role": "anchor", "ref": [3, 4], "auto_hints": []} },
+    { "id":  4, "section": "verse1", "type": "sung", "text": "It's so wonderful and warm", "translation": "너무나 아름답고 따뜻해", "translation_notes": "", "relation": {"type": "continuation", "group": "v1b", "role": "continuation", "ref": [3, 4], "auto_hints": ["fragment"]} },
+    { "id":  5, "section": "verse1", "type": "sung", "text": "Breathe me in, breathe me out", "translation": "날 들이쉬고, 내뱉어", "translation_notes": "호흡 = 상대와 완전히 섞이는 감각", "relation": {"type": "setup_payoff", "group": "v1c", "role": "setup", "ref": [5, 6], "auto_hints": []} },
+    { "id":  6, "section": "verse1", "type": "sung", "text": "I don't know if I could ever go without", "translation": "없이는 못 살 것 같아", "translation_notes": "go without = ~없이 지내다", "relation": {"type": "setup_payoff", "group": "v1c", "role": "payoff", "ref": [5, 6], "auto_hints": []} },
+    { "id":  7, "section": "prechorus1", "type": "sung", "text": "I'm just thinking about you", "translation": "그냥 너 생각만 해", "translation_notes": "" },
+    { "id":  8, "section": "prechorus1", "type": "sung", "text": "I'm just thinking about you", "translation": "그냥 너 생각만 해", "translation_notes": "" },
+    { "id":  9, "section": "chorus1", "type": "sung", "text": "Watermelon sugar high", "translation": "수박 슈거하이", "translation_notes": "sugar high = 달콤함에 취한 흥분 상태. Sweet Serotonin과 연결" },
+    { "id": 10, "section": "chorus1", "type": "sung", "text": "Watermelon sugar high", "translation": "수박 슈거하이", "translation_notes": "" },
+    { "id": 11, "section": "chorus1", "type": "sung", "text": "Watermelon sugar high", "translation": "수박 슈거하이", "translation_notes": "" },
+    { "id": 12, "section": "chorus1", "type": "sung", "text": "Watermelon sugar", "translation": "수박의 달콤함", "translation_notes": "" },
+    { "id": 13, "section": "verse2", "type": "sung", "text": "Strawberries on a summer evening", "translation": "여름 저녁의 딸기", "translation_notes": "", "relation": {"type": "parallel", "group": "v2a", "role": "anchor", "ref": [13, 14], "auto_hints": ["fragment"]} },
+    { "id": 14, "section": "verse2", "type": "sung", "text": "Baby, you're the end of June", "translation": "자기야, 넌 6월의 끝 같아", "translation_notes": "end of June = 여름 절정. 가장 뜨겁고 달콤한 시절", "relation": {"type": "parallel", "group": "v2a", "role": "metaphor", "ref": [13, 14], "auto_hints": []} },
+    { "id": 15, "section": "verse2", "type": "sung", "text": "I want your belly and that summer feeling", "translation": "네 온기와 그 여름 감각이 좋아", "translation_notes": "belly = 배, 온기, 친밀한 신체 접촉", "relation": {"type": "continuation", "group": "v2b", "role": "anchor", "ref": [15, 16], "auto_hints": []} },
+    { "id": 16, "section": "verse2", "type": "sung", "text": "Getting washed away in you", "translation": "네 안에 완전히 녹아드는 것 같아", "translation_notes": "washed away = 휩쓸려 사라지다. 감각에 압도됨", "relation": {"type": "continuation", "group": "v2b", "role": "effect", "ref": [15, 16], "auto_hints": ["no_subject", "fragment"]} },
+    { "id": 17, "section": "verse2", "type": "sung", "text": "Breathe me in, breathe me out", "translation": "날 들이쉬고, 내뱉어", "translation_notes": "" },
+    { "id": 18, "section": "verse2", "type": "sung", "text": "I don't know if I could ever go without", "translation": "없이는 못 살 것 같아", "translation_notes": "" },
+    { "id": 19, "section": "prechorus2", "type": "sung", "text": "I'm just thinking about you", "translation": "그냥 너 생각만 해", "translation_notes": "" },
+    { "id": 20, "section": "prechorus2", "type": "sung", "text": "I'm just thinking about you", "translation": "그냥 너 생각만 해", "translation_notes": "" },
+    { "id": 21, "section": "chorus2", "type": "sung", "text": "Watermelon sugar high", "translation": "수박 슈거하이", "translation_notes": "" },
+    { "id": 22, "section": "chorus2", "type": "sung", "text": "Watermelon sugar high", "translation": "수박 슈거하이", "translation_notes": "" },
+    { "id": 23, "section": "chorus2", "type": "sung", "text": "Watermelon sugar high", "translation": "수박 슈거하이", "translation_notes": "" },
+    { "id": 24, "section": "chorus2", "type": "sung", "text": "Watermelon sugar", "translation": "수박의 달콤함", "translation_notes": "" },
+    { "id": 25, "section": "bridge", "type": "sung", "text": "I just wanna taste it, I just wanna taste it", "translation": "그냥 맛보고 싶어, 그냥 맛보고 싶어", "translation_notes": "taste = 감각적 체험 전체의 은유", "relation": {"type": "setup_payoff", "group": "br_a", "role": "setup", "ref": [25, 26], "auto_hints": []} },
+    { "id": 26, "section": "bridge", "type": "sung", "text": "Watermelon sugar high", "translation": "수박 슈거하이", "translation_notes": "", "relation": {"type": "setup_payoff", "group": "br_a", "role": "payoff", "ref": [25, 26], "auto_hints": ["fragment"]} },
+    { "id": 27, "section": "chorus3", "type": "sung", "text": "Watermelon sugar high", "translation": "수박 슈거하이", "translation_notes": "" },
+    { "id": 28, "section": "chorus3", "type": "sung", "text": "Watermelon sugar high", "translation": "수박 슈거하이", "translation_notes": "" },
+    { "id": 29, "section": "chorus3", "type": "sung", "text": "Watermelon sugar high", "translation": "수박 슈거하이", "translation_notes": "" },
+    { "id": 30, "section": "chorus3", "type": "sung", "text": "Watermelon sugar", "translation": "수박의 달콤함", "translation_notes": "" },
+    { "id": 31, "section": "outro", "type": "sung", "text": "Watermelon sugar high", "translation": "수박 슈거하이", "translation_notes": "" },
+    { "id": 32, "section": "outro", "type": "sung", "text": "Watermelon sugar", "translation": "수박의 달콤함", "translation_notes": "" }
+  ],
+
+  "td": {
+    "summer feeling":            { "ko": "여름의 들뜬 감각", "context": "여름의 자유롭고 뜨거운 감각 전체" },
+    "sugar high":                { "ko": "달콤함에 취한 흥분 상태", "context": "Sweet Serotonin과 동일 표현. 감정적 황홀감" },
+    "end of June":               { "ko": "여름의 절정", "context": "6월 말 = 가장 뜨겁고 달콤한 시간" },
+    "washed away":               { "ko": "완전히 휩쓸려 녹아들다", "context": "감각이나 감정에 압도되어 자아가 사라지는 느낌" },
+    "go without":                { "ko": "~없이 지내다", "context": "could never go without = 없이는 못 살겠어" },
+    "breathe in/out":            { "ko": "들이쉬다/내뱉다", "context": "호흡 = 상대와 완전히 섞이는 친밀감 표현" },
+    "belly":                     { "ko": "배 / 온기", "context": "친밀한 신체 접촉. 따뜻하고 편안한 감각" },
+    "taste it":                  { "ko": "맛보다 / 경험하다", "context": "감각적 체험 전체의 은유" }
+  },
+
+  "tm": [
+    { "id": 1, "source": "Tastes like strawberries on a summer evening", "target": "여름 저녁에 먹는 딸기 맛이야", "score": 0.85, "notes": "" },
+    { "id": 2, "source": "Breathe me in, breathe me out", "target": "날 들이쉬고, 내뱉어", "score": 0.85, "notes": "반복" },
+    { "id": 3, "source": "I don't know if I could ever go without", "target": "없이는 못 살 것 같아", "score": 0.85, "notes": "반복" },
+    { "id": 4, "source": "Watermelon sugar high", "target": "수박 슈거하이", "score": 0.85, "notes": "코러스 반복. sugar high TD 연동" },
+    { "id": 5, "source": "Baby, you're the end of June", "target": "자기야, 넌 6월의 끝 같아", "score": 0.85, "notes": "" },
+    { "id": 6, "source": "Getting washed away in you", "target": "네 안에 완전히 녹아드는 것 같아", "score": 0.85, "notes": "" },
+    { "id": 7, "source": "I just wanna taste it", "target": "그냥 맛보고 싶어", "score": 0.85, "notes": "브릿지 반복" },
+    { "id": 8, "source": "I'm just thinking about you", "target": "그냥 너 생각만 해", "score": 0.85, "notes": "프리코러스 반복" }
+  ]
+}

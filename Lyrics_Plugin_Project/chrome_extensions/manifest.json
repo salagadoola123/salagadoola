@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "VIBE 가사지 - OBS 가사 싱크",
+  "version": "1.0.0",
+  "description": "VIBE 웹에서 가사를 읽어 실시간으로 표시합니다",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://vibe.naver.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://vibe.naver.com/*"],
+      "js": ["vibe_bridge.js"],
+      "run_at": "document_end",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://vibe.naver.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;"
+  },
+  "action": {
+    "default_popup": "remote.html",
+    "default_title": "VIBE 가사지"
+  },
+  "icons": {
+    "16":  "icon.png",
+    "48":  "icon.png",
+    "128": "icon.png"
+  }
+}
